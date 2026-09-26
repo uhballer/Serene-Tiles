@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Serene Tiles — Tile Match Puzzle</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <div class="hdr">
+    <h1>Serene Tiles</h1>
+    <p>Tap, match, relax.</p>
+  </div>
+
+  <!-- ============ 关卡选择 ============ -->
+  <div id="screen-menu">
+    <div class="panel">
+      <h2>Select Level</h2>
+      <div id="level-grid"></div>
+      <div class="legend">
+        <b>★ Milestone</b> — 难度台阶关<br>
+        <b>~ Breather</b> — 喘息关，刻意回落难度<br>
+        <b>Green</b> — 已通关
+      </div>
+      <div class="modal-btns">
+        <button class="btn btn-ghost" id="btn-reset-progress">Reset Progress</button>
+      </div>
+    </div>
+    <div class="foot">关卡难度曲线与堆叠生成算法由策划侧设计 · 悬停关卡可看设计意图</div>
+  </div>
+
+  <!-- ============ 游戏 ============ -->
+  <div id="screen-game" class="hidden">
+    <div class="hud">
+      <div class="left">
+        <button class="icon-btn" id="btn-back">←</button>
+        <span class="lv-badge">Level <span id="level-num">1</span></span>
+        <span class="tag tag-normal" id="level-tag">NORMAL</span>
+      </div>
+      <div class="left">
+        <span class="score-pill"><span class="lb">SCORE</span><span id="score-val">0</span></span>
+        <button class="icon-btn" id="btn-restart">↻</button>
+        <button class="icon-btn" id="btn-note">?</button>
+      </div>
+    </div>
+
+    <div class="note-drawer" id="design-note">
+      <strong>Design Note</strong><br><span id="design-text"></span>
+    </div>
+
+    <div class="board-wrap">
+      <div id="board"></div>
+    </div>
+
+    <div class="tray-wrap">
+      <div id="tray"></div>
+      <p class="tray-hint" id="tray-hint"></p>
+    </div>
+
+    <div class="items">
+      <button class="item" id="btn-undo">Undo <span class="cnt" id="item-undo">3</span></button>
+      <button class="item" id="btn-hint">Hint <span class="cnt" id="item-hint">2</span></button>
+      <button class="item" id="btn-recall">Recall <span class="cnt" id="item-recall">1</span></button>
+    </div>
+
+    <div class="foot">剩余方块 <span id="tiles-left">0</span> · 集齐 3 个相同图案即可消除</div>
+  </div>
+
+  <div class="flash" id="flash"></div>
+  <div class="combo-badge" id="combo-badge"></div>
+  <div id="fx-layer"></div>
+
+  <div class="modal" id="result">
+    <div class="modal-box">
+      <h3 id="result-title">Level Clear!</h3>
+      <div id="result-body"></div>
+      <div class="modal-btns">
+        <button class="btn btn-primary" id="btn-next">Next Level</button>
+        <button class="btn btn-ghost" id="btn-restart-2">Retry</button>
+        <button class="btn btn-ghost" id="btn-result-close">Levels</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="levels.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
